@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="home" prefHeight="500.0" prefWidth="600.0" style="-fx-background-image: images\home.JPG;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="440.0" fitWidth="550.0" layoutX="26.0" layoutY="53.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/home.JPG" />
+         </image>
+      </ImageView>
+      <Button layoutX="199.0" layoutY="178.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="288.0" style="-fx-background-color: null;" text="Button" />
+      <Button layoutX="199.0" layoutY="282.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="288.0" style="-fx-background-color: null;" text="Button" />
+      <Button layoutX="199.0" layoutY="388.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="288.0" style="-fx-background-color: null;" text="Button" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+.root {
+	-fx-background-color: white;
+}
+
+#SchoolName {
+	-fx-font-size: 20;
+	-fx-text-fill: blue;
+}
+
+#AppName {
+	-fx-font-size: 25;
+	-fx-font-weight: bold;
+	-fx-text-fill: red;
+}
+
+#username, #password {
+	-fx-font-size: 18;
+}
+
+#username:hover, #password:hover {
+	-fx-background-color: azure;
+}
+
+#Login {
+	-fx-background-color: #4285f4;
+	-fx-border-color: #4285f4;
+	-fx-text-fill: white;
+	-fx-font-size: 18;
+}
+
+#Login:hover {
+	-fx-background-color: #5894f5;
+}
