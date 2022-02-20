@@ -1,5 +1,6 @@
 package application.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,27 +11,53 @@ import java.util.ResourceBundle;
 
 import ConnectSQL.ConnectionUtils;
 import application.Models.Account;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 public class LoginController implements Initializable{
 	@FXML
 	private TextField username;
 	@FXML
 	private PasswordField password;
 	
-	private Account account;
+	private static Account account;
 	
-	private List<Account> list;
+	private List<Account> list = new ArrayList<Account>();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 	}
 	
-	public void login() {
+	public void DataQuery() {
+		try {
+			Connection connection = ConnectionUtils.getMyConnection();
+			Statement statement = connection.createStatement();
+			String sql = "select*from Account";
+			ResultSet rs = statement.executeQuery(sql);
+			
+			while(rs.next()) {
+				String name = rs.getString(1);
+				String pass = rs.getString(2);
+				String permission = rs.getString(3);
+				Account acc = new Account(name, pass, permission);
+				list.add(acc);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void login(ActionEvent event) {
 		Alert alert;
 		
 		if(username.getText().trim().equals("") || password.getText().trim().equals("")) {
@@ -49,32 +76,24 @@ public class LoginController implements Initializable{
 			alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setContentText("Đăng nhập thành công với quyền " + account.getPermission());
 			alert.showAndWait();
+			
+			try {
+				Parent root = FXMLLoader.load(this.getClass().getResource("/application/Viewer/Home.fxml"));
+				Scene scene = new Scene(root,615,500);
+				scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+				
+				Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				stage.setScene(scene);
+				stage.show();
+			} catch (IOException ioe) {
+				// TODO Auto-generated catch block
+				ioe.printStackTrace();
+			}
 		}
 		else {
 			alert = new Alert(Alert.AlertType.WARNING);
 			alert.setContentText("Tên đăng nhập hoặc mật khẩu không đúng");
 			alert.showAndWait();
-		}
-	}
-	 
-	public void DataQuery() {
-		list = new ArrayList<Account>();
-		try {
-			Connection connection = ConnectionUtils.getMyConnection();
-			Statement statement = connection.createStatement();
-			String sql = "Select * from BGH";
-			ResultSet rs = statement.executeQuery(sql);
-			
-			if(rs.next()) {
-				String name = rs.getString(1);
-				String pass = rs.getString(2);
-				String permission = rs.getString(3);
-				Account acc = new Account(name, pass, permission);
-				list.add(acc);
-			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 	
@@ -89,8 +108,8 @@ public class LoginController implements Initializable{
 		}
 		return false;
 	}
-
-	public Account getAccount() {
+	
+	public static Account getAccount() {
 		return account;
 	}
 	

@@ -31,3 +31,14 @@
 #Login:hover {
 	-fx-background-color: #5894f5;
 }
+
+#btInHome {
+	-fx-font-size: 33;
+	-fx-font-weight: bold;
+	-fx-font-style: italic;
+	
+}
+
+#btInHome:hover {
+	-fx-opacity: 0.9;
+}

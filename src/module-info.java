@@ -8,4 +8,5 @@ module QuanLyNhanSu {
 	opens application;
 	opens application.Viewer;
 	opens application.Controller;
+	opens application.Models;
 }

@@ -10,7 +10,7 @@ public class SQLServerConnUtil {
 	     
 		String hostName = "localhost";
 	     String sqlInstanceName = "MINH\\SQLEXPRESS01";
-	     String database = "MINHQLNS";
+	     String database = "QuanLyNhanSu";
 	     String userName = "sa";
 	     String password = "12345";
 

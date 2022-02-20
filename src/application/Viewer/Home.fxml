@@ -1,21 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="home" prefHeight="500.0" prefWidth="600.0" style="-fx-background-image: images\home.JPG;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.HomeController">
    <children>
-      <ImageView fitHeight="440.0" fitWidth="550.0" layoutX="26.0" layoutY="53.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="500.0" fitWidth="615.0" opacity="0.58" pickOnBounds="true" AnchorPane.leftAnchor="0.0">
          <image>
-            <Image url="@../../images/home.JPG" />
+            <Image url="@../../images/homebgr.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="199.0" layoutY="178.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="288.0" style="-fx-background-color: null;" text="Button" />
-      <Button layoutX="199.0" layoutY="282.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="288.0" style="-fx-background-color: null;" text="Button" />
-      <Button layoutX="199.0" layoutY="388.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="288.0" style="-fx-background-color: null;" text="Button" />
+      
+      <Button id="btInHome" layoutX="110.0" layoutY="370.0" mnemonicParsing="false" onAction="#QLL_GUI" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #6699FF;" text="Quản lý Lương" textFill="#ffffff" />
+      		
+      <Button id="btInHome" layoutX="110.0" layoutY="150.0" mnemonicParsing="false" onAction="#QLTD_GUI" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #66CC33;" text="Quản lý Tuyển dụng" textFill="#ffffff" />
+      		 
+      <Button id="btInHome" layoutX="110.0" layoutY="260.0" mnemonicParsing="false" onAction="#QLNS_GUI" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #E54646;" text="Quản lý Nhân sự" textFill="#ffffff" />
+     
+      <Line endX="514.0" layoutX="100.0" layoutY="43.0" startX="-100.0" />
+     
+      <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/logo2.JPG" />
+         </image>
+      </ImageView>
+      
+      <Label layoutX="170.0" layoutY="85.0" style="-fx-font-size: 30; -fx-font-weight: bold;" text="QUẢN LÝ NHÂN SỰ" textFill="0000EE" />
+         
+      <Label layoutX="46.0" layoutY="4.0" style="-fx-font-size: 14;" text="Trường Đại học Công nghiệp Hà Nội" />
+         
+      <Label layoutX="47.0" layoutY="22.0" text="Khoa Công nghệ thông tin" />
+      
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="547.0" layoutY="14.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/setup.png" />
+         </image>
+      </ImageView>
+      
+      <MenuBar layoutX="538.0" layoutY="12.0" opacity="0.0" prefHeight="25.0" prefWidth="39.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
+              <MenuItem mnemonicParsing="false" text="Cài đặt" />
+              <Menu fx:id="sys" mnemonicParsing="false" text="Hệ thống" visible="false">
+              	<items>
+                	<MenuItem mnemonicParsing="false" onAction="#QLTaiKhoan" text="Quản lý tài khoản" />
+                    <MenuItem mnemonicParsing="false" text="Thiết lập hệ thống" />
+                </items>
+              </Menu>
+              <MenuItem mnemonicParsing="false" onAction="#Exit" text="Đăng xuất" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      
+      <AnchorPane fx:id="AM" visible="false" layoutX="110.0" layoutY="70.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="76.0" layoutY="14.0" style="-fx-font-size: 30; -fx-font-weight: bold;" text="Quản lý tài khoản" />
+            	
+            <Label layoutX="55.0" layoutY="67.0" style="-fx-font-size: 15;" text="Tài khoản" />
+            <Label layoutX="55.0" layoutY="102.0" style="-fx-font-size: 15;" text="Mật khẩu" />
+            <Label layoutX="55.0" layoutY="137.0" style="-fx-font-size: 15;" text="Nhập lại mật khẩu" />
+            <Label layoutX="55.0" layoutY="172.0" style="-fx-font-size: 15;" text="Quyền sử dụng" />
+            
+            <TextField fx:id="tk" focusTraversable="false" layoutX="200.0" layoutY="65.0" />
+            <PasswordField fx:id="mk" focusTraversable="false" layoutX="200.0" layoutY="100.0" />
+            <PasswordField fx:id="mk2" focusTraversable="false" layoutX="200.0" layoutY="135.0" />
+            <ComboBox fx:id="combobox" focusTraversable="false" layoutX="200.0" layoutY="170.0" prefHeight="25.0" prefWidth="150.0" />
+            
+            <Button focusTraversable="false" layoutX="115.0" layoutY="210.0" mnemonicParsing="false" onAction="#Them" prefWidth="70.0" text="Thêm" />
+            	
+            <Button focusTraversable="false" layoutX="215.0" layoutY="210.0" mnemonicParsing="false" onAction="#Xoa" prefWidth="70.0" text="Xóa" />
+            
+            <TableView fx:id="table" layoutX="10.0" layoutY="245.0" prefHeight="150.0" prefWidth="380.0">
+              <columns>
+                <TableColumn fx:id="tkcolumn" prefWidth="125.0" text="Tên tài khoản" />
+                <TableColumn fx:id="mkcolumn" prefWidth="125.0" text="Mật khẩu" />
+                <TableColumn fx:id="quyencolumn" prefWidth="130.0" text="Quyền sử dụng" />
+              </columns>
+            </TableView>
+            
+            <Button text="X" onAction="#X" layoutX="378.0" prefHeight="25.0" prefWidth="20.0" 
+            	mnemonicParsing="false" textFill="RED" style="-fx-background-color: null; -fx-font-weight: bold"/>
+         </children>
+      </AnchorPane>
+      
    </children>
 </AnchorPane>
