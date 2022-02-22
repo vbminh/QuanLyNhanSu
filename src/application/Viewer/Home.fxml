@@ -31,11 +31,11 @@
          </image>
       </ImageView>
       
-      <Label layoutX="170.0" layoutY="85.0" style="-fx-font-size: 30; -fx-font-weight: bold;" text="QUẢN LÝ NHÂN SỰ" textFill="0000EE" />
+      <Label text="QUẢN LÝ NHÂN SỰ" layoutX="170.0" layoutY="85.0" style="-fx-font-size: 30; -fx-font-weight: bold;" textFill="0000EE" />
          
-      <Label layoutX="46.0" layoutY="4.0" style="-fx-font-size: 14;" text="Trường Đại học Công nghiệp Hà Nội" />
+      <Label text="Trường Đại học Công nghiệp Hà Nội" layoutX="46.0" layoutY="4.0" style="-fx-font-size: 14;" />
          
-      <Label layoutX="47.0" layoutY="22.0" text="Khoa Công nghệ thông tin" />
+      <Label text="Khoa Công nghệ thông tin" layoutX="47.0" layoutY="22.0"  />
       
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="547.0" layoutY="14.0" pickOnBounds="true">
          <image>
@@ -75,9 +75,9 @@
             <PasswordField fx:id="mk2" focusTraversable="false" layoutX="200.0" layoutY="135.0" />
             <ComboBox fx:id="combobox" focusTraversable="false" layoutX="200.0" layoutY="170.0" prefHeight="25.0" prefWidth="150.0" />
             
-            <Button focusTraversable="false" layoutX="115.0" layoutY="210.0" mnemonicParsing="false" onAction="#Them" prefWidth="70.0" text="Thêm" />
+            <Button focusTraversable="false" layoutX="115.0" layoutY="210.0" mnemonicParsing="false" onAction="#QLTaiKhoan_Them" prefWidth="70.0" text="Thêm" />
             	
-            <Button focusTraversable="false" layoutX="215.0" layoutY="210.0" mnemonicParsing="false" onAction="#Xoa" prefWidth="70.0" text="Xóa" />
+            <Button focusTraversable="false" layoutX="215.0" layoutY="210.0" mnemonicParsing="false" onAction="#QLTaiKhoan_Xoa" prefWidth="70.0" text="Xóa" />
             
             <TableView fx:id="table" layoutX="10.0" layoutY="245.0" prefHeight="150.0" prefWidth="380.0">
               <columns>
@@ -87,7 +87,7 @@
               </columns>
             </TableView>
             
-            <Button text="X" onAction="#X" layoutX="378.0" prefHeight="25.0" prefWidth="20.0" 
+            <Button text="X" onAction="#QLTaiKhoan_X" layoutX="378.0" prefHeight="25.0" prefWidth="20.0" 
             	mnemonicParsing="false" textFill="RED" style="-fx-background-color: null; -fx-font-weight: bold"/>
          </children>
       </AnchorPane>

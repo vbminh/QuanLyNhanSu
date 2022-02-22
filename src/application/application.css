@@ -29,7 +29,7 @@
 }
 
 #Login:hover {
-	-fx-background-color: #5894f5;
+	-fx-opacity: 0.9;
 }
 
 #btInHome {
@@ -41,4 +41,8 @@
 
 #btInHome:hover {
 	-fx-opacity: 0.9;
+}
+
+#label {
+	-fx-font-size: 18;
 }

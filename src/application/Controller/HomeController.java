@@ -5,8 +5,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import ConnectSQL.ConnectionUtils;
@@ -20,6 +19,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.PasswordField;
@@ -50,9 +52,9 @@ public class HomeController implements Initializable{
 	@FXML
 	private ComboBox<String> combobox;
 	
-	ObservableList<Account> list2 = FXCollections.observableArrayList();
+	ObservableList<Account> listAccounts = FXCollections.observableArrayList();
 	
-	ObservableList<String> list = FXCollections.observableArrayList("admin","quanly");
+	ObservableList<String> listComboBox = FXCollections.observableArrayList("admin","quanly");
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -65,7 +67,7 @@ public class HomeController implements Initializable{
 	
 	public void QLTD_GUI(ActionEvent e) {
 		try {
-			Parent root = FXMLLoader.load(this.getClass().getResource("/application/Viewer/QLNS.fxml"));
+			Parent root = FXMLLoader.load(this.getClass().getResource("/application/Viewer/QLTD.fxml"));
 			Scene scene = new Scene(root,1300,650);
 			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			
@@ -110,7 +112,8 @@ public class HomeController implements Initializable{
 	
 	public void QLTaiKhoan(ActionEvent event) {
 		AM.setVisible(true);
-		combobox.setItems(list);
+		table.getItems().clear();
+		combobox.setItems(listComboBox);
 		
 		try {
 			Connection connection = ConnectionUtils.getMyConnection();
@@ -123,32 +126,105 @@ public class HomeController implements Initializable{
 				String pass = rs.getString(2);
 				String permission = rs.getString(3);
 				Account acc = new Account(name, pass, permission);
-				list2.add(acc);
+				listAccounts.add(acc);
 			}
 			connection.close();
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Có lỗi: " + e.toString());
 		}
 		tkcolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("username"));
 		mkcolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("password"));
 		quyencolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("permission"));
-		table.setItems(list2);
+		table.setItems(listAccounts);
 	}
 	
-	public void Them() {
-		System.exit(0);
+	public void QLTaiKhoan_Them() {
+		Alert alert;
+		int check = 0;
+		
+		for(Account item : listAccounts) {
+			if(item.getUsername().equals(tk.getText())) check++;
+		}
+		
+		if(tk.getText().trim().equals("") || mk.getText().trim().equals("") || mk2.getText().trim().equals("") || combobox.getValue().isBlank()) {			
+			alert = new Alert(Alert.AlertType.WARNING);
+			alert.setContentText("Bạn phải nhập đầy đủ các trường");
+			alert.showAndWait();
+		}
+		else if(check != 0) {
+			alert = new Alert(Alert.AlertType.WARNING);
+			alert.setContentText("Tên tài khoản đã tồn tại");
+			alert.showAndWait();
+		}
+		else if(!mk.getText().equals(mk2.getText())) {
+			alert = new Alert(Alert.AlertType.WARNING);
+			alert.setContentText("Mật khẩu không trùng khớp");
+			alert.showAndWait();
+		}
+		else {
+			Account newAcc = new Account();
+			newAcc.setUsername(tk.getText());
+			newAcc.setPassword(mk.getText());
+			newAcc.setPermission(combobox.getValue());
+			listAccounts.add(newAcc);
+			
+			String sql = "Insert into Account(username,pass,permission)" + "values(\'" + tk.getText() + "',\'" + mk.getText() +"\',\'" + combobox.getValue() + "\')";
+			try {
+				Connection connection = ConnectionUtils.getMyConnection();
+				Statement statement = connection.createStatement();
+				statement.executeQuery(sql);
+				
+				connection.close();
+			}
+			catch (Exception e) {
+				System.out.println("Có lỗi: " + e.toString());
+			}
+			
+			alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setContentText("Thêm thành công");
+			alert.show();
+			
+			tk.setText(null);
+			mk.setText(null);
+			mk2.setText(null);
+			combobox.setValue(null);
+		}
 	}
 	
-	public void Xoa() {
-		System.exit(0);
+	public void QLTaiKhoan_Xoa() {
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setContentText("Bạn có muốn xóa tài khoản này không?");
+		
+		ButtonType btYes = new ButtonType("Đồng ý", ButtonData.YES);
+		ButtonType btCancel = new ButtonType("Hủy", ButtonData.CANCEL_CLOSE);
+		alert.getButtonTypes().setAll(btYes,btCancel);
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		Account selected = table.getSelectionModel().getSelectedItem();
+		
+		if(result.get() == btYes) {
+			listAccounts.remove(selected);
+		}
+		
+		String sql = "Delete from Account where username = \'" + selected.getUsername() + "\'";
+		try {
+			Connection connection = ConnectionUtils.getMyConnection();
+			Statement statement = connection.createStatement();
+			statement.executeQuery(sql);
+			
+			connection.close();
+		}
+		catch (Exception e) {
+			System.out.println("Có lỗi: " + e.toString());
+		}
+	}
+	
+	public void QLTaiKhoan_X(ActionEvent event) {
+		AM.setVisible(false);
 	}
 	
 	public void Exit() {
 		System.exit(0);
-	}
-	
-	public void X(ActionEvent event) {
-		AM.setVisible(false);
 	}
 }

@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import java.lang.Object?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QLNSController">
+<AnchorPane fx:id="QLNS_GUI" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QLNSController">
    <children>
       
       <ToolBar layoutY="32.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="625.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Thêm">
+          <Button focusTraversable="false" mnemonicParsing="false" onAction="#ThemNhanSu" style="-fx-font-size: 12; -fx-text-fill: black" text="Thêm">
           	<graphic>
           		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
                 	<image>
@@ -27,7 +27,7 @@
           	</graphic>
           </Button>
           
-          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Cập nhập">
+          <Button onAction="#SuaNhanSu" focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Cập nhập">
           	<graphic>
           		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
                 	<image>
@@ -77,7 +77,17 @@
           	</graphic>
           </Button>
           
-          <Button focusTraversable="false" mnemonicParsing="false" onAction="#back" style="-fx-font-size: 12; -fx-text-fill: black" text="Tiện ích">
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Báo cáo - Thống kê">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/chart.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Tiện ích">
           	<graphic>
           		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
                 	<image>
@@ -107,7 +117,7 @@
           	</graphic>
           </Button>
           
-          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Quay lại">
+          <Button focusTraversable="false" mnemonicParsing="false" onAction="#back" style="-fx-font-size: 12; -fx-text-fill: black" text="Quay lại">
           	<graphic>
           		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
                 	<image>
@@ -189,29 +199,138 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
-            <Tab style="-fx-font-weight: bold;" text="Hợp đồng lao động">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
           
-            <Tab style="-fx-font-weight: bold;" text="Bảo hiểm xã hội">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
+          <Tab style="-fx-font-weight: bold;" text="Hợp đồng lao động">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+             </content>
+          </Tab>
+          
+          <Tab style="-fx-font-weight: bold;" text="Bảo hiểm xã hội">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+             </content>
+          </Tab>
             
-            <Tab style="-fx-font-weight: bold;" text="Quá trình công tác">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab style="-fx-font-weight: bold;" text="Đánh giá - Khen thưởng">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
+          <Tab style="-fx-font-weight: bold;" text="Quá trình công tác">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+             </content>
+          </Tab>
+          <Tab style="-fx-font-weight: bold;" text="Đánh giá - Khen thưởng">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+             </content>
+          </Tab>
         </tabs>
       </TabPane>
+      
+      <AnchorPane fx:id="Them_GUI" visible="false" layoutX="150.0" layoutY="50.0" prefHeight="542.0" prefWidth="1000.0" style="-fx-background-color: whitesmoke; -fx-border-color: gray;">
+         <children>
+            <Label id="label" layoutX="400.0" layoutY="25.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="THÊM NHÂN VIÊN" textFill="0000EE" />
+            <ImageView fx:id="imgView" fitHeight="170.0" fitWidth="150.0" layoutX="390.0" layoutY="75.0" pickOnBounds="true"/>
+            <Button onAction="#ChooseImage" layoutX="390.0" layoutY="75.0" mnemonicParsing="false" prefHeight="170.0" prefWidth="150.0" style="-fx-background-color: null; -fx-border-color: black;" />
+            
+            <Label id="label" layoutX="10.0" layoutY="75.0" text="Mã nhân viên" />
+            <Label id="label" layoutX="10.0" layoutY="125.0" text="Họ và tên" />
+            <Label id="label" layoutX="10.0" layoutY="165.0" text="Giới tính" />
+            <Label id="label" layoutX="10.0" layoutY="210.0" text="Ngày sinh" />
+            <Label id="label" layoutX="10.0" layoutY="260.0" text="Số điện thoại" />
+            <Label id="label" layoutX="10.0" layoutY="305.0" text="Địa chỉ" />
+            <Label id="label" layoutX="10.0" layoutY="355.0" text="Số CMND" />
+            <Label id="label" layoutX="10.0" layoutY="410.0" text="Quê quán" />
+            <Label id="label" layoutX="10.0" layoutY="460.0" text="Dân tộc" />
+            <Label id="label" layoutX="495.0" layoutY="255.0" text="Email" />
+            <Label id="label" layoutX="475.0" layoutY="355.0" text="Ngày cấp" />
+            <Label id="label" layoutX="300.0" layoutY="460.0" text="Tôn giáo" />
+            <Label id="label" layoutX="575.0" layoutY="75.0" text="Bộ phận" />
+            <Label id="label" layoutX="575.0" layoutY="125.0" text="Chức danh" />
+            <Label id="label" layoutX="575.0" layoutY="165.0" text="Chức vụ" />
+            <Label id="label" layoutX="575.0" layoutY="210.0" text="Ngày vào làm" />
+            <Label id="label" layoutX="580.0" layoutY="460.0" text="Tình trạng hôn nhân" />
+            
+            <TextField fx:id="Them_ma" layoutX="140.0" layoutY="75.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_ten" layoutX="140.0" layoutY="125.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <RadioButton fx:id="Them_gtnam" layoutX="140.0" layoutY="170.0" mnemonicParsing="false" style="-fx-font-size: 15;" text="Nam">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gioitinh" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="Them_gtnu" layoutX="230.0" layoutY="170.0" mnemonicParsing="false" style="-fx-font-size: 15;" text="Nữ" toggleGroup="$gioitinh" />
+            <DatePicker fx:id="Them_ngsinh" layoutX="140.0" layoutY="205.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_sdt" layoutX="140.0" layoutY="255.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_cmnd" layoutX="140.0" layoutY="455.0" prefHeight="25.0" prefWidth="130.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_dchi" layoutX="140.0" layoutY="305.0" prefHeight="25.0" prefWidth="845.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_que" layoutX="140.0" layoutY="355.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_dtoc" layoutX="140.0" layoutY="405.0" prefHeight="25.0" prefWidth="845.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_tgiao" layoutX="395.0" layoutY="455.0" prefHeight="25.0" prefWidth="158.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_email" layoutX="570.0" layoutY="255.0" prefHeight="25.0" prefWidth="415.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_bophan" layoutX="710.0" layoutY="75.0" prefHeight="25.0" prefWidth="275.0" style="-fx-font-size: 15;" />
+            <DatePicker fx:id="Them_ngcap" layoutX="570.0" layoutY="357.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_hnhan" layoutX="770.0" layoutY="455.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_cdanh" layoutX="710.0" layoutY="120.0" prefHeight="25.0" prefWidth="275.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_cvu" layoutX="710.0" layoutY="165.0" prefHeight="25.0" prefWidth="275.0" style="-fx-font-size: 15;" />
+            <DatePicker fx:id="Them_ngvaolam" layoutX="710.0" layoutY="210.0" style="-fx-font-size: 15;" />
+         
+            <Button onAction="#ThemNhanSu_Them" layoutX="775.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Thêm" />
+            <Button layoutX="860.0" layoutY="505.0" mnemonicParsing="false" onAction="#ThemNhanSu_Huy" prefHeight="25.0" prefWidth="65.0" text="Hủy" />
+            </children>
+      </AnchorPane>
+	  
+	  <AnchorPane fx:id="Sua_GUI" visible="false" layoutX="150.0" layoutY="50.0" prefHeight="542.0" prefWidth="1000.0" style="-fx-background-color: whitesmoke; -fx-border-color: gray;">
+         <children>
+            <Label layoutX="370.0" layoutY="25.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="CẬP NHẬT NHÂN VIÊN" textFill="0000EE" />
+            <ImageView fitHeight="170.0" fitWidth="150.0" layoutX="390.0" layoutY="75.0" pickOnBounds="true">
+            	<image>
+            		<Image url="@../../images/avt.png"/>
+            	</image>
+            </ImageView>
+            <Button layoutX="390.0" layoutY="75.0" mnemonicParsing="false" prefHeight="170.0" prefWidth="150.0" style="-fx-background-color: null; -fx-border-color: black;" />
+            
+            
+            <Label id="label" layoutX="10.0" layoutY="75.0" text="Mã nhân viên" />
+            <Label id="label" layoutX="10.0" layoutY="125.0" text="Họ và tên" />
+            <Label id="label" layoutX="10.0" layoutY="165.0" text="Giới tính" />
+            <Label id="label" layoutX="10.0" layoutY="210.0" text="Ngày sinh" />
+            <Label id="label" layoutX="10.0" layoutY="260.0" text="Số điện thoại" />
+            <Label id="label" layoutX="10.0" layoutY="305.0" text="Địa chỉ" />
+            <Label id="label" layoutX="10.0" layoutY="355.0" text="Số CMND" />
+            <Label id="label" layoutX="10.0" layoutY="410.0" text="Quê quán" />
+            <Label id="label" layoutX="10.0" layoutY="460.0" text="Dân tộc" />
+            <Label id="label" layoutX="495.0" layoutY="255.0" text="Email" />
+            <Label id="label" layoutX="475.0" layoutY="355.0" text="Ngày cấp" />
+            <Label id="label" layoutX="300.0" layoutY="460.0" text="Tôn giáo" />
+            <Label id="label" layoutX="575.0" layoutY="75.0" text="Bộ phận" />
+            <Label id="label" layoutX="575.0" layoutY="125.0" text="Chức danh" />
+            <Label id="label" layoutX="575.0" layoutY="165.0" text="Chức vụ" />
+            <Label id="label" layoutX="575.0" layoutY="210.0" text="Ngày vào làm" />
+            <Label id="label" layoutX="580.0" layoutY="460.0" text="Tình trạng hôn nhân" />
+            
+            <TextField fx:id="Them_ma" layoutX="140.0" layoutY="75.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;"  disable="true"/>
+            <TextField fx:id="Them_ten" layoutX="140.0" layoutY="125.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <RadioButton fx:id="Them_gtnam" layoutX="140.0" layoutY="170.0" mnemonicParsing="false" style="-fx-font-size: 15;" text="Nam">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gioitinh" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="Them_gtnu" layoutX="230.0" layoutY="170.0" mnemonicParsing="false" style="-fx-font-size: 15;" text="Nữ" toggleGroup="$gioitinh" />
+            <DatePicker fx:id="Them_ngsinh" layoutX="140.0" layoutY="205.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_sdt" layoutX="140.0" layoutY="255.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_cmnd" layoutX="140.0" layoutY="455.0" prefHeight="25.0" prefWidth="130.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_dchi" layoutX="140.0" layoutY="305.0" prefHeight="25.0" prefWidth="845.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_que" layoutX="140.0" layoutY="355.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_dtoc" layoutX="140.0" layoutY="405.0" prefHeight="25.0" prefWidth="845.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_tgiao" layoutX="395.0" layoutY="455.0" prefHeight="25.0" prefWidth="158.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_email" layoutX="570.0" layoutY="255.0" prefHeight="25.0" prefWidth="415.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_bophan" layoutX="710.0" layoutY="75.0" prefHeight="25.0" prefWidth="275.0" style="-fx-font-size: 15;" />
+            <DatePicker fx:id="Them_ngcap" layoutX="570.0" layoutY="357.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_hnhan" layoutX="770.0" layoutY="455.0" prefHeight="25.0" prefWidth="215.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_cdanh" layoutX="710.0" layoutY="120.0" prefHeight="25.0" prefWidth="275.0" style="-fx-font-size: 15;" />
+            <TextField fx:id="Them_cvu" layoutX="710.0" layoutY="165.0" prefHeight="25.0" prefWidth="275.0" style="-fx-font-size: 15;" />
+            <DatePicker fx:id="Them_ngvaolam" layoutX="710.0" layoutY="210.0" style="-fx-font-size: 15;" />
+         
+            <Button onAction="#SuaNhanSu_Sua" layoutX="775.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Cập nhật" />
+            <Button layoutX="860.0" layoutY="505.0" mnemonicParsing="false" onAction="#ThemNhanSu_Huy" prefHeight="25.0" prefWidth="65.0" text="Hủy" />
+            </children>
+      </AnchorPane>
+	  
    </children>
 </AnchorPane>

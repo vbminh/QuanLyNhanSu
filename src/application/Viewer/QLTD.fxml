@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.Object?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QLTDController">
+   <children>
+      
+      <ToolBar layoutY="32.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="625.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Thêm">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/add.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Cập nhập">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/update.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Xóa">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/del.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Tra cứu thông tin">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/search.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Thuyên chuyển - Bổ nhiệm">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/change.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="In danh sách">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/print.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" onAction="#back" style="-fx-font-size: 12; -fx-text-fill: black" text="Tiện ích">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/utilities.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Phản hồi">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/feedback.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Hỗ trợ">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/help.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+          
+          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Quay lại">
+          	<graphic>
+          		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
+                	<image>
+          	          <Image url="@../../images/back.png" />
+                    </image>
+                </ImageView>
+          	</graphic>
+          </Button>
+        </items>
+      </ToolBar>
+  
+      <TableView layoutY="25.0" prefHeight="368.0" prefWidth="1302.0" style="-fx-font-size: 12">
+      	<columns>
+        	<TableColumn maxWidth="120.0" prefWidth="120.0" text="Mã nhân viên" />
+            <TableColumn maxWidth="180.0" prefWidth="180.0" text="Họ và tên" />
+            <TableColumn maxWidth="100.0" prefWidth="100.0" text="Giới tính" />
+            <TableColumn maxWidth="150.0" prefWidth="150.0" text="Ngày sinh" />
+            <TableColumn maxWidth="200.0" prefWidth="200.0" text="Vị trí công việc" />
+            <TableColumn maxWidth="120.0" prefWidth="120.0" text="Chức danh" />
+            <TableColumn maxWidth="130.0" prefWidth="130.0" text="Chức vụ" />
+      	    <TableColumn maxWidth="150.0" prefWidth="150.0" text="Ngày vào làm" />
+            <TableColumn maxWidth="150.0" prefWidth="150.0" text="Ghi chú" />
+        </columns>
+      </TableView>
+      
+      <TabPane layoutX="250.0" layoutY="391.0" prefHeight="259.0" prefWidth="1120.0" style="-fx-font-size: 12" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="390.0">
+        <tabs>
+          <Tab style="-fx-font-weight: bold;" text="Thông tin chi tiết">
+            <content>
+              <AnchorPane id="infid" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-font-size: 15">
+                     <children>
+                        
+                        <ImageView fitHeight="160.0" fitWidth="155.0" layoutX="28.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="46.0">
+                           <image>
+                              <Image url="@../../images/avt.png" />
+                           </image>
+                        </ImageView>
+                        
+                        <Label layoutX="220.0" layoutY="10.0" text="Mã nhân viên:" />
+                        <Label layoutX="220.0" layoutY="40.0" text="Họ và tên:" />
+                        <Label layoutX="220.0" layoutY="70.0" text="Giới tính:" />
+                        <Label layoutX="220.0" layoutY="100.0" text="Ngày sinh:" />
+                        <Label layoutX="220.0" layoutY="130.0" text="Địa chỉ:" />
+                        <Label layoutX="220.0" layoutY="160.0" text="Điện thoại:" />
+                        <Label layoutX="220.0" layoutY="190.0" text="Email:" />
+                        <Label layoutX="550.0" layoutY="10.0" text="Số CMND/CCCD:" />
+                        <Label layoutX="550.0" layoutY="40.0" text="Ngày cấp:" />
+                        <Label layoutX="550.0" layoutY="70.0" text="Dân tộc:" />
+                        <Label layoutX="550.0" layoutY="100.0" text="Tôn giáo:" />
+                        <Label layoutX="550.0" layoutY="130.0" text="Quê quán:" />
+                        <Label layoutX="550.0" layoutY="160.0" text="Tình trạng hôn nhân:" />
+                        <Label layoutX="950.0" layoutY="10.0" text="Nơi đào tạo:" />
+                        <Label layoutX="950.0" layoutY="40.0" text="Chuyên ngành:" />
+                        <Label layoutX="950.0" layoutY="70.0" text="Học vị:" />
+                        
+                        <Label fx:id="infma" layoutX="350.0" layoutY="10.0" />
+                        <Label fx:id="inften" layoutX="350.0" layoutY="40.0" />
+                        <Label fx:id="infgtinh" layoutX="350.0" layoutY="70.0" />
+                        <Label fx:id="infNgsinh" layoutX="350.0" layoutY="100.0" />
+                        <Label fx:id="infdchi" layoutX="350.0" layoutY="130.0" />
+                        <Label fx:id="infsdt" layoutX="350.0" layoutY="160.0" />
+                        <Label fx:id="infemail" layoutX="350.0" layoutY="190.0" />
+                        <Label fx:id="infcmnd" layoutX="700.0" layoutY="10.0" />
+                        <Label fx:id="infngcap" layoutX="700.0" layoutY="40.0" />
+                        <Label fx:id="infdtoc" layoutX="700.0" layoutY="70.0" />
+                        <Label fx:id="inftgiao" layoutX="700.0" layoutY="100.0" />
+                        <Label fx:id="infqquan" layoutX="700.0" layoutY="130.0" />
+                        <Label fx:id="infhnhan" layoutX="700.0" layoutY="160.0" />  
+                        <Label fx:id="infdtao" layoutX="1070.0" layoutY="10.0" /> 
+                        <Label fx:id="infchnganh" layoutX="1070.0" layoutY="40.0" /> 
+                        <Label fx:id="infhvi" layoutX="1070.0" layoutY="70.0" />     
+                     </children>
+            	</AnchorPane>
+            </content>
+          </Tab>
+          
+          <Tab style="-fx-font-weight: bold;" text="Bằng cấp-Chứng chỉ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab style="-fx-font-weight: bold;" text="Hợp đồng lao động">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+          
+            <Tab style="-fx-font-weight: bold;" text="Bảo hiểm xã hội">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            
+            <Tab style="-fx-font-weight: bold;" text="Quá trình công tác">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab style="-fx-font-weight: bold;" text="Đánh giá - Khen thưởng">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

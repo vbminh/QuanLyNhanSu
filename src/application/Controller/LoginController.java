@@ -75,7 +75,7 @@ public class LoginController implements Initializable{
 		if(CheckAccount()) {
 			alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setContentText("Đăng nhập thành công với quyền " + account.getPermission());
-			alert.showAndWait();
+			alert.show();
 			
 			try {
 				Parent root = FXMLLoader.load(this.getClass().getResource("/application/Viewer/Home.fxml"));
