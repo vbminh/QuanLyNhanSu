@@ -44,11 +44,7 @@ public class HomeController implements Initializable{
 	@FXML
 	private TableView<Account> table;
 	@FXML
-	private TableColumn<Account, String> tkcolumn;
-	@FXML
-	private TableColumn<Account, String> mkcolumn;
-	@FXML
-	private TableColumn<Account, String> quyencolumn;
+	private TableColumn<Account, String> tkcolumn, mkcolumn, quyencolumn;
 	@FXML
 	private ComboBox<String> combobox;
 	

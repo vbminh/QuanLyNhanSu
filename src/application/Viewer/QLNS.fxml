@@ -129,21 +129,21 @@
         </items>
       </ToolBar>
   
-      <TableView layoutY="25.0" prefHeight="368.0" prefWidth="1302.0" style="-fx-font-size: 12">
+      <TableView fx:id="table" onMouseClicked="#Thongtincanhan" layoutY="25.0" prefHeight="368.0" prefWidth="1302.0" style="-fx-font-size: 12">
       	<columns>
-        	<TableColumn maxWidth="120.0" prefWidth="120.0" text="Mã nhân viên" />
-            <TableColumn maxWidth="180.0" prefWidth="180.0" text="Họ và tên" />
-            <TableColumn maxWidth="100.0" prefWidth="100.0" text="Giới tính" />
-            <TableColumn maxWidth="150.0" prefWidth="150.0" text="Ngày sinh" />
-            <TableColumn maxWidth="200.0" prefWidth="200.0" text="Vị trí công việc" />
-            <TableColumn maxWidth="120.0" prefWidth="120.0" text="Chức danh" />
-            <TableColumn maxWidth="130.0" prefWidth="130.0" text="Chức vụ" />
-      	    <TableColumn maxWidth="150.0" prefWidth="150.0" text="Ngày vào làm" />
-            <TableColumn maxWidth="150.0" prefWidth="150.0" text="Ghi chú" />
+        	<TableColumn fx:id="macolumn" maxWidth="110.0" prefWidth="110.0" text="Mã nhân viên" />
+            <TableColumn fx:id="tencolumn" maxWidth="170.0" prefWidth="170.0" text="Họ và tên" />
+            <TableColumn fx:id="gtinhcolumn" maxWidth="100.0" prefWidth="100.0" text="Giới tính" />
+            <TableColumn fx:id="ngsinhcolumn" maxWidth="140.0" prefWidth="140.0" text="Ngày sinh" />
+            <TableColumn fx:id="bophancolumn" maxWidth="180.0" prefWidth="180.0" text="Bộ phận" />
+            <TableColumn fx:id="cdanhcolumn" maxWidth="180.0" prefWidth="180.0" text="Chức danh nghề nghiệp" />
+            <TableColumn fx:id="cvucolumn" maxWidth="130.0" prefWidth="130.0" text="Chức vụ" />
+      	    <TableColumn fx:id="ngvlamcolumn" maxWidth="140.0" prefWidth="140.0" text="Ngày vào làm" />
+            <TableColumn fx:id="gchucolumn" maxWidth="150.0" prefWidth="150.0" text="Ghi chú" />
         </columns>
       </TableView>
       
-      <TabPane layoutX="250.0" layoutY="391.0" prefHeight="259.0" prefWidth="1120.0" style="-fx-font-size: 12" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="390.0">
+      <TabPane fx:id="tabpane" visible="false" layoutX="250.0" layoutY="390.0" prefHeight="260.0" prefWidth="1120.0" style="-fx-font-size: 12" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="390.0">
         <tabs>
           <Tab style="-fx-font-weight: bold;" text="Thông tin chi tiết">
             <content>
@@ -170,8 +170,8 @@
                         <Label layoutX="550.0" layoutY="130.0" text="Quê quán:" />
                         <Label layoutX="550.0" layoutY="160.0" text="Tình trạng hôn nhân:" />
                         <Label layoutX="950.0" layoutY="10.0" text="Nơi đào tạo:" />
-                        <Label layoutX="950.0" layoutY="40.0" text="Chuyên ngành:" />
-                        <Label layoutX="950.0" layoutY="70.0" text="Học vị:" />
+                        <Label layoutX="950.0" layoutY="40.0" text="Khoa:" />
+                        <Label layoutX="950.0" layoutY="70.0" text="Chuyên ngành:" />
                         
                         <Label fx:id="infma" layoutX="350.0" layoutY="10.0" />
                         <Label fx:id="inften" layoutX="350.0" layoutY="40.0" />
@@ -186,9 +186,9 @@
                         <Label fx:id="inftgiao" layoutX="700.0" layoutY="100.0" />
                         <Label fx:id="infqquan" layoutX="700.0" layoutY="130.0" />
                         <Label fx:id="infhnhan" layoutX="700.0" layoutY="160.0" />  
-                        <Label fx:id="infdtao" layoutX="1070.0" layoutY="10.0" /> 
-                        <Label fx:id="infchnganh" layoutX="1070.0" layoutY="40.0" /> 
-                        <Label fx:id="infhvi" layoutX="1070.0" layoutY="70.0" />     
+                        <Label layoutX="1070.0" layoutY="10.0" /> 
+                        <Label layoutX="1070.0" layoutY="40.0" /> 
+                        <Label layoutX="1070.0" layoutY="70.0" />     
                      </children>
             	</AnchorPane>
             </content>
