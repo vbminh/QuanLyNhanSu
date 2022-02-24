@@ -63,13 +63,13 @@ public class LoginController implements Initializable{
 		if(username.getText().trim().equals("") || password.getText().trim().equals("")) {
 			alert = new Alert(Alert.AlertType.WARNING);
 			alert.setContentText("Tên đăng nhập hoặc mật khẩu không được để trống");
-			alert.showAndWait();
+			alert.show();
 		}
 		
 		if(username.getText().contains(" ") || password.getText().contains(" ")) {
 			alert = new Alert(Alert.AlertType.WARNING);
 			alert.setContentText("Tên đăng nhập hoặc mật khẩu không được chứa dấu cách");
-			alert.showAndWait();
+			alert.show();
 		}
 		
 		if(CheckAccount()) {

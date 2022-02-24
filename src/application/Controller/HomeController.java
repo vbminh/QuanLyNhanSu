@@ -79,11 +79,13 @@ public class HomeController implements Initializable{
 	public void QLNS_GUI(ActionEvent e) {
 		try {
 			Parent root = FXMLLoader.load(this.getClass().getResource("/application/Viewer/QLNS.fxml"));
-			Scene scene = new Scene(root,1300,650);
+			Scene scene = new Scene(root, 1300, 650);
 			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			
 			Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
 			stage.setScene(scene);
+			stage.setX(20);
+			stage.setY(15);
 			stage.show();
 		} catch (IOException ioe) {
 			// TODO Auto-generated catch block
@@ -110,7 +112,15 @@ public class HomeController implements Initializable{
 		AM.setVisible(true);
 		table.getItems().clear();
 		combobox.setItems(listComboBox);
+		DataQuery();
 		
+		tkcolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("username"));
+		mkcolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("password"));
+		quyencolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("permission"));
+		table.setItems(listAccounts);
+	}
+	
+	public void DataQuery() {
 		try {
 			Connection connection = ConnectionUtils.getMyConnection();
 			Statement statement = connection.createStatement();
@@ -129,10 +139,6 @@ public class HomeController implements Initializable{
 		catch (Exception e) {
 			System.out.println("Có lỗi: " + e.toString());
 		}
-		tkcolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("username"));
-		mkcolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("password"));
-		quyencolumn.setCellValueFactory(new PropertyValueFactory<Account, String>("permission"));
-		table.setItems(listAccounts);
 	}
 	
 	public void QLTaiKhoan_Them() {
@@ -146,17 +152,17 @@ public class HomeController implements Initializable{
 		if(tk.getText().trim().equals("") || mk.getText().trim().equals("") || mk2.getText().trim().equals("") || combobox.getValue().isBlank()) {			
 			alert = new Alert(Alert.AlertType.WARNING);
 			alert.setContentText("Bạn phải nhập đầy đủ các trường");
-			alert.showAndWait();
+			alert.show();
 		}
 		else if(check != 0) {
 			alert = new Alert(Alert.AlertType.WARNING);
 			alert.setContentText("Tên tài khoản đã tồn tại");
-			alert.showAndWait();
+			alert.show();
 		}
 		else if(!mk.getText().equals(mk2.getText())) {
 			alert = new Alert(Alert.AlertType.WARNING);
 			alert.setContentText("Mật khẩu không trùng khớp");
-			alert.showAndWait();
+			alert.show();
 		}
 		else {
 			Account newAcc = new Account();

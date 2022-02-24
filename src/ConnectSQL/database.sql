@@ -44,3 +44,30 @@ insert into NhanSu values('NV0001','Nguyen Van A','nam','04/22/1968','0987654321
 						('NV0013','Dang Van Ng','nam','08/26/1977','0657942680','ngdangv@gmail.com','Phu Tho, Viet Nam','Khoa Cong nghe thong tin','Giang vien','','04/01/2021','')
 
 select*from NhanSu
+
+go
+create table TuyenDung (
+	mauv varchar(10) not null primary key,
+	tenuv nvarchar(30) not null,
+	gtinh char(5) not null,
+	ngsinh date not null,
+	sdt char(10) not null,
+	email varchar(30) not null,
+	dchi nvarchar(30) not null,
+	trinhdo nvarchar(30),
+	truong nvarchar(30),
+	cnganh nvarchar(30),
+	xeploai nvarchar(30),
+	vtungtuyen nvarchar(30) not null
+)
+go
+insert into TuyenDung values('UV0001','Nguyen Van A','nam','04/22/1968','0987654321','anguyenv@gmail.com','Ha Noi, Viet Nam','Dai hoc','Dai hoc Thuong mai','Tai chinh ngan hang','Gioi','Giang vien'),
+						('UV0002','Hoang Thi B','nu','12/02/1973','0345678987','bhoangt@gmail.com','Bac Ninh, Viet Nam','Dai hoc','Dai hoc Cong nghiep Ha Noi','Cong nghe thong tin','Xuat sac','Giang vien'),
+						('UV0003','Pham Thi C','nu','01/01/1970','0835025682','cphamt@gmail.com','Hai Phong, Viet Nam','Dai hoc','Hoc vien Ngan hang','Ke toan','Kha','Phong Tai chinh Ke toan'),
+						('UV0004','Chu Van D','nam','06/15/1970','0125283745','dchuv@gmail.com','Phu Tho, Viet Nam','THPT','THPT BKA','','','bao ve'),
+						('UV0005','Nong Duc E','nam','05/13/1969','0739579369','enongd@gmail.com','Ha Noi, Viet Nam','Dai hoc','Dai hoc Van hoa Ha Noi','Du lich','Gioi','Giang vien'),
+						('UV0006','Hoang Hoa T','nu','09/27/1975','0857269401','thoangh@gmail.com','Yen Bai, Viet Nam','Dai hoc','Dai hoc Cong nghiep Ha Noi','Co khi','Kha','Tro Giang'),
+						('UV0007','Le Duc M','nam','10/22/1981','0846793683','mled@gmail.com','Ha Nam, Viet Nam','Cao dang','Dai hoc Thuong Mai','Quan tri nhan luc','Gioi','Phong Cong tac sinh vien'),
+						('UV0008','De La F','nam','02/06/1978','0269670325','fdel@gmail.com','Ha Noi, Viet Nam','THPT','THPT GVB','','','Ve sinh')
+
+select * from TuyenDung

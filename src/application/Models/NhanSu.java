@@ -11,7 +11,7 @@ public class NhanSu {
 	}
 
 	public NhanSu(String ma, String ten, String gtinh, String ngsinh, String sdt, String email, String dchi,
-			String bophan, String cdanh, String cvu, String ghichu, String ngvaolam) {
+			String bophan, String cdanh, String cvu,String ngvaolam, String ghichu) {
 		super();
 		this.ma = ma;
 		this.ten = ten;
