@@ -2,15 +2,10 @@ package application.Controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.ResourceBundle;
 
-import ConnectSQL.ConnectionUtils;
-import application.Models.Account;
+import application.Models.ListAccount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,38 +18,22 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 public class LoginController implements Initializable{
-	@FXML
-	private TextField username;
-	@FXML
-	private PasswordField password;
+	@FXML private TextField username;
+	@FXML private PasswordField password;
+	Alert alert;
 	
-	private static Account account;
+	ListAccount list = new ListAccount();
 	
-	private List<Account> list = new ArrayList<Account>();
+	ReadWriteObject rw = new ReadWriteObject();
+	String fileName = "Account.bin";
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-	}
-	
-	public void DataQuery() {
-		try {
-			Connection connection = ConnectionUtils.getMyConnection();
-			Statement statement = connection.createStatement();
-			String sql = "select*from Account";
-			ResultSet rs = statement.executeQuery(sql);
-			
-			while(rs.next()) {
-				String name = rs.getString(1);
-				String pass = rs.getString(2);
-				String permission = rs.getString(3);
-				Account acc = new Account(name, pass, permission);
-				list.add(acc);
-			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+		/*
+		 * list.them(); try { rw.WriteObject(fileName, list); } catch (IOException ex) {
+		 * System.out.println(ex); }
+		 */
+		docfile();
 	}
 	
 	public void login(ActionEvent event) {
@@ -62,19 +41,19 @@ public class LoginController implements Initializable{
 		
 		if(username.getText().trim().equals("") || password.getText().trim().equals("")) {
 			alert = new Alert(Alert.AlertType.WARNING);
-			alert.setContentText("Tên đăng nhập hoặc mật khẩu không được để trống");
+			alert.setContentText("Ten dang nhap hoac mat khau khong duoc de trong");
 			alert.show();
 		}
 		
 		if(username.getText().contains(" ") || password.getText().contains(" ")) {
 			alert = new Alert(Alert.AlertType.WARNING);
-			alert.setContentText("Tên đăng nhập hoặc mật khẩu không được chứa dấu cách");
+			alert.setContentText("Ten dang nhap hoac mat khau khong duoc chua dau cach");
 			alert.show();
 		}
 		
-		if(CheckAccount()) {
+		if(list.CheckAcc(username.getText(), password.getText()) != -1) {
 			alert = new Alert(Alert.AlertType.INFORMATION);
-			alert.setContentText("Đăng nhập thành công với quyền " + account.getPermission());
+			alert.setContentText("Dang nhap thanh cong");
 			alert.show();
 			
 			try {
@@ -92,25 +71,16 @@ public class LoginController implements Initializable{
 		}
 		else {
 			alert = new Alert(Alert.AlertType.WARNING);
-			alert.setContentText("Tên đăng nhập hoặc mật khẩu không đúng");
+			alert.setContentText("Ten dang nhap hoac mat khau khong dung");
 			alert.showAndWait();
 		}
 	}
 	
-	public boolean CheckAccount() {
-		account = new Account(username.getText(), password.getText());
-		DataQuery();
-		int index = list.indexOf(account);
-		if(index != -1) {
-			String permission = list.get(index).getPermission();
-			account.setPermission(permission);
-			return true;
-		}
-		return false;
+	private void docfile() {
+		try {
+            list = (ListAccount) rw.ReadObject(fileName);
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
 	}
-	
-	public static Account getAccount() {
-		return account;
-	}
-	
 }

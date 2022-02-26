@@ -4,7 +4,7 @@ module QuanLyNhanSu {
 	requires javafx.controls;
 	requires java.sql;
 	
-	opens application;
+	opens application to javafx.fxml, javafx.graphics;
 	opens application.Viewer;
 	opens application.Controller;
 	opens application.Models;

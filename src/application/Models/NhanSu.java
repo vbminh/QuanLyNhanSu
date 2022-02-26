@@ -1,6 +1,12 @@
 package application.Models;
 
-public class NhanSu {
+import java.io.Serializable;
+
+public class NhanSu implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String ma, ten, gtinh, ngsinh, sdt, email, dchi, bophan,cdanh, cvu, ngvaolam, ghichu;
 	
 	public NhanSu() {
@@ -31,7 +37,9 @@ public class NhanSu {
 		return ma;
 	}
 
-	public void setMa(String ma) {
+	public void setMa(String ma) throws Exception {
+		if(ma.trim().equals(""))
+			throw new Exception("Ma khong duoc bo trong");
 		this.ma = ma;
 	}
 
@@ -39,7 +47,9 @@ public class NhanSu {
 		return ten;
 	}
 
-	public void setTen(String ten) {
+	public void setTen(String ten) throws Exception {
+		if(ten.trim().equals(""))
+			throw new Exception("Ten khong duoc bo trong");
 		this.ten = ten;
 	}
 
@@ -47,7 +57,9 @@ public class NhanSu {
 		return gtinh;
 	}
 
-	public void setGtinh(String gtinh) {
+	public void setGtinh(String gtinh) throws Exception {
+		if(gtinh.trim().equals(""))
+			throw new Exception("Gioi tinh khong duoc bo trong");
 		this.gtinh = gtinh;
 	}
 
@@ -55,7 +67,9 @@ public class NhanSu {
 		return ngsinh;
 	}
 
-	public void setNgsinh(String ngsinh) {
+	public void setNgsinh(String ngsinh) throws Exception {
+		if(ngsinh.trim().equals(""))
+			throw new Exception("Ngay sinh khong duoc bo trong");
 		this.ngsinh = ngsinh;
 	}
 
@@ -63,7 +77,9 @@ public class NhanSu {
 		return sdt;
 	}
 
-	public void setSdt(String sdt) {
+	public void setSdt(String sdt) throws Exception {
+		if(sdt.trim().equals(""))
+			throw new Exception("So dien thoai khong duoc bo trong");
 		this.sdt = sdt;
 	}
 
@@ -71,7 +87,9 @@ public class NhanSu {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email) throws Exception {
+		if(email.trim().equals(""))
+			throw new Exception("Email khong duoc bo trong");
 		this.email = email;
 	}
 
@@ -79,7 +97,9 @@ public class NhanSu {
 		return dchi;
 	}
 
-	public void setDchi(String dchi) {
+	public void setDchi(String dchi) throws Exception {
+		if(dchi.trim().equals(""))
+			throw new Exception("Dia chi khong duoc bo trong");
 		this.dchi = dchi;
 	}
 
@@ -87,7 +107,9 @@ public class NhanSu {
 		return bophan;
 	}
 
-	public void setBophan(String bophan) {
+	public void setBophan(String bophan) throws Exception {
+		if(bophan.trim().equals(""))
+			throw new Exception("Bo phan khong duoc bo trong");
 		this.bophan = bophan;
 	}
 
@@ -95,7 +117,9 @@ public class NhanSu {
 		return cdanh;
 	}
 
-	public void setCdanh(String cdanh) {
+	public void setCdanh(String cdanh) throws Exception {
+		if(cdanh.trim().equals(""))
+			throw new Exception("Chuc danh khong duoc bo trong");
 		this.cdanh = cdanh;
 	}
 
@@ -103,7 +127,9 @@ public class NhanSu {
 		return cvu;
 	}
 
-	public void setCvu(String cvu) {
+	public void setCvu(String cvu) throws Exception {
+		if(cvu.trim().equals(""))
+			throw new Exception("Chuc vu khong duoc bo trong");
 		this.cvu = cvu;
 	}
 
@@ -111,7 +137,9 @@ public class NhanSu {
 		return ngvaolam;
 	}
 
-	public void setNgvaolam(String ngvaolam) {
+	public void setNgvaolam(String ngvaolam) throws Exception {
+		if(ngvaolam.trim().equals(""))
+			throw new Exception("Ngay vao lam khong duoc bo trong");
 		this.ngvaolam = ngvaolam;
 	}
 

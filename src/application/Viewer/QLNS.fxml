@@ -37,7 +37,7 @@
           	</graphic>
           </Button>
           
-          <Button onAction="#XoaNhanSu" focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Xóa">
+          <Button focusTraversable="false" mnemonicParsing="false" onAction="#XoaNhanSu" style="-fx-font-size: 12; -fx-text-fill: black" text="Xóa">
           	<graphic>
           		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
                 	<image>
@@ -47,7 +47,7 @@
           	</graphic>
           </Button>
           
-          <Button focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Tra cứu thông tin">
+          <Button onAction="#TimNhanSu" focusTraversable="false" mnemonicParsing="false" style="-fx-font-size: 12; -fx-text-fill: black" text="Tra cứu thông tin">
           	<graphic>
           		<ImageView fitHeight="15.0" fitWidth="15.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
                 	<image>
@@ -222,7 +222,7 @@
         </tabs>
       </TabPane>
       
-      <AnchorPane fx:id="Them_GUI" visible="false" layoutX="150.0" layoutY="50.0" prefHeight="542.0" prefWidth="1000.0" style="-fx-background-color: whitesmoke; -fx-border-color: gray;">
+      <AnchorPane fx:id="Them_GUI" layoutX="150.0" layoutY="50.0" prefHeight="542.0" prefWidth="1000.0" style="-fx-background-color: whitesmoke; -fx-border-color: gray;" visible="false">
          <children>
             <Label id="label" layoutX="400.0" layoutY="25.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="THÊM NHÂN VIÊN" textFill="0000EE" />
             <ImageView fx:id="imgView" fitHeight="170.0" fitWidth="150.0" layoutX="390.0" layoutY="75.0" pickOnBounds="true" />
@@ -327,6 +327,31 @@
             <Button layoutX="775.0" layoutY="505.0" mnemonicParsing="false" onAction="#SuaNhanSu_Sua" prefHeight="25.0" prefWidth="65.0" text="Cập nhật" />
             <Button layoutX="860.0" layoutY="505.0" mnemonicParsing="false" onAction="#SuaNhanSu_Huy" prefHeight="25.0" prefWidth="65.0" text="Hủy" />
             </children>
+      </AnchorPane>
+      
+      <AnchorPane fx:id="Tim_GUI" visible="false" layoutY="100.0" prefHeight="350.0" prefWidth="1300.0" style="-fx-border-color: black; -fx-background-color: white;">
+         <children>
+            <TableView fx:id="Ttable" layoutY="199.0" prefHeight="150.0" prefWidth="1300.0">
+              <columns>
+                  <TableColumn fx:id="Tmacolumn" maxWidth="110.0" prefWidth="110.0" text="Mã nhân viên" />
+                  <TableColumn fx:id="Ttencolumn" maxWidth="170.0" prefWidth="170.0" text="Họ và tên" />
+                  <TableColumn fx:id="Tgtinhcolumn" maxWidth="100.0" prefWidth="100.0" text="Giới tính" />
+                  <TableColumn fx:id="Tngsinhcolumn" maxWidth="140.0" prefWidth="140.0" text="Ngày sinh" />
+                  <TableColumn fx:id="Tbophancolumn" maxWidth="180.0" prefWidth="180.0" text="Bộ phận" />
+                  <TableColumn fx:id="Tcdanhcolumn" maxWidth="180.0" prefWidth="180.0" text="Chức danh nghề nghiệp" />
+                  <TableColumn fx:id="Tcvucolumn" maxWidth="130.0" prefWidth="130.0" text="Chức vụ" />
+                  <TableColumn fx:id="Tngvlamcolumn" maxWidth="140.0" prefWidth="140.0" text="Ngày vào làm" />
+                  <TableColumn fx:id="Tgchucolumn" maxWidth="150.0" prefWidth="150.0" text="Ghi chú" />
+              </columns>
+            </TableView>
+            
+            <Button onAction="#TimNhanSu_Tim" layoutX="520.0" layoutY="163.0" mnemonicParsing="false" prefWidth="80.0" text="Tìm kiếm" />
+            <Button onAction="#TimNhanSu_Huy" layoutX="620.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Hủy" />
+            
+            <Label id="label" layoutX="520.0" layoutY="29.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="TRA CỨU NHÂN VIÊN" textFill="0000EE" />
+            <ComboBox fx:id="combobox" layoutX="450.0" layoutY="95.0" prefWidth="150.0" />
+            <TextField fx:id="timkiem" layoutX="620.0" layoutY="95.0" prefWidth="150.0" />
+         </children>
       </AnchorPane>
 	  
    </children>

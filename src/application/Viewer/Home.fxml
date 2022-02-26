@@ -49,7 +49,7 @@
             <items>
               <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
               <MenuItem mnemonicParsing="false" text="Cài đặt" />
-              <Menu fx:id="sys" mnemonicParsing="false" text="Hệ thống" visible="false">
+              <Menu mnemonicParsing="false" text="Hệ thống">
               	<items>
                 	<MenuItem mnemonicParsing="false" onAction="#QLTaiKhoan" text="Quản lý tài khoản" />
                     <MenuItem mnemonicParsing="false" text="Thiết lập hệ thống" />

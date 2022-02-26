@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="620.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QLLController">
+   <children>
+      <TableView fx:id="table" layoutX="40.0" layoutY="300.0" prefHeight="302.0" prefWidth="1042.0">
+        <columns>
+          <TableColumn fx:id="MaColumn" prefWidth="96.0" text="Mã nhân viên" />
+          <TableColumn fx:id="TenColumn" prefWidth="117.0" text="Họ tên" />
+            <TableColumn fx:id="BophanColumn" prefWidth="124.0" text="Bộ phận" />
+            <TableColumn fx:id="CdanhColumn" prefWidth="145.0" text="Chức danh nghề nghiệp" />
+           <TableColumn fx:id="ChucvuColumn" prefWidth="99.0" text="Chức vụ" />
+            <TableColumn fx:id="LuongColumn" prefWidth="89.0" text="Lương cơ bản" />
+            <TableColumn fx:id="HsLuongColumn" prefWidth="81.0" text="Hệ số lương" />
+            <TableColumn fx:id="PhucapColumn" prefWidth="97.0" text="Phụ cấp" />
+            <TableColumn fx:id="NgaycongColumn" prefWidth="95.0" text="Số ngày công" />
+            <TableColumn fx:id="TongluongColumn" prefWidth="98.0" text="Tổng lương" />
+        </columns>
+      </TableView>
+      
+      <Label layoutX="484.0" layoutY="14.0" text="THÔNG TIN LƯƠNG NHÂN VIÊN" textAlignment="CENTER" textFill="#1d00d7">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+     
+      <Button onAction="#add" defaultButton="true" layoutX="1123.0" layoutY="300.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Thêm">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+      </Button>
+      
+      <Button onAction="#update" defaultButton="true" layoutX="1123.0" layoutY="350.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Cập nhật">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+     
+      </Button>
+      
+      <Button onAction="#delete" defaultButton="true" layoutX="1123.0" layoutY="400.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Xóa">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+      </Button>
+      
+      <Button defaultButton="true" layoutX="1123.0" layoutY="450.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="In thông tin">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+      </Button>
+      
+      <Label layoutX="40.0" layoutY="57.0" prefHeight="20.0" prefWidth="81.0" text="Lựa chọn">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      
+      <Button defaultButton="true" layoutX="1123.0" layoutY="550.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Trở về">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+      </Button>
+      
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="161.0" layoutX="40.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="627.0" />
+      <Label layoutX="52.0" layoutY="110.0" text="Mã nhân viên">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ManvField" layoutX="164.0" layoutY="103.0" prefHeight="25.0" prefWidth="168.0" />
+      
+      <Label layoutX="52.0" layoutY="146.0" text="Hệ số lương">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="HsoField" layoutX="164.0" layoutY="139.0" prefHeight="25.0" prefWidth="168.0" />
+      
+      <Label layoutX="52.0" layoutY="184.0" text="Lương cơ bản">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="LuongField" layoutX="164.0" layoutY="177.0" prefHeight="25.0" prefWidth="168.0" />
+      
+      <Label layoutX="362.0" layoutY="109.0" text="Phụ cấp">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="PhucapField" layoutX="474.0" layoutY="102.0" prefHeight="25.0" prefWidth="168.0" />
+      
+      <Label layoutX="362.0" layoutY="147.0" text="Số ngày công">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NgaycongField" layoutX="474.0" layoutY="140.0" prefHeight="25.0" prefWidth="168.0" />
+      
+      <Label layoutX="39.0" layoutY="270.0" prefHeight="20.0" prefWidth="81.0" text="Danh sách">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
